@@ -6,7 +6,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # connection = psycopg2.connect(host=os.getenv("PGHOST"), user=os.getenv("PGUSER"), password=os.getenv("PGPASSWORD"), port=os.getenv("PGPORT"), dbname=os.getenv("PGDATABASE"))
+    # connection = psycopg2.connect(host=os.getenv("PGHOST", "dpg-ch8fge5gk4q7lmq3l460-a.oregon-postgres.render.com"),
+    # user=os.getenv("PGUSER", "pg"),
+    # password=os.getenv("PGPASSWORD", "INSERTHERE"),
+    # port=os.getenv("PGPORT", "5432"),
+    # dbname=os.getenv("PGDATABASE", "project2_8x9r"))
     connection = psycopg2.connect(os.getenv("DATABASE_URL"))
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM images;")
