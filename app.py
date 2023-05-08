@@ -7,9 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # connection = psycopg2.connect(host=os.getenv("PGHOST"), user=os.getenv("PGUSER"), password=os.getenv("PGPASSWORD"), port=os.getenv("PGPORT"), dbname=os.getenv("PGDATABASE"))
-    connection = psycopg2.connect(os.getenv("postgres://pg:pSyCdeo1JQVO7wzGZm2wCEUOUXb5Axo9@dpg-ch8fge5gk4q7lmq3l460-a.oregon-postgres.render.com/project2_8x9r"))
+    connection = psycopg2.connect(os.getenv("DATABASE_URL"))
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM mytable;")
+    cursor.execute("SELECT * FROM images;")
     results = cursor.fetchall()
     connection.close()
     return f"{results[0]}"
@@ -21,6 +21,7 @@ def homepage():
 @app.route('/messages')
 def messages():
     return render_template("messages.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
