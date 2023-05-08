@@ -4,6 +4,8 @@ DROP TABLE users;
 CREATE TABLE images(id SERIAL PRIMARY KEY, img_url TEXT NOT NULL, text_desc TEXT NOT NULL, img_year INTEGER NOT NULL);
 DROP TABLE images;
 
+CREATE TABLE messages(id SERIAL PRIMARY KEY, user_msg TEXT NOT NULL);
+DROP TABLE messages;
 
 INSERT INTO users(name, username, user_pwd) VALUES (%s, %s);
 
