@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% body block_content %}
 <h2>This is a message from 'INSERT USER HERE' </h2>
-<p>Dear mum,</p>
+<p>Dear mum, jinja will go here instead to capture messages typed on website</p>
+{% endblock %}
+
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<ul>
+    {% for item in food_items %}
+    <li>{{ item["name"] }} {{ item["price"] }}</li>
+    {% if item["image_url"] %}
+    <img src="{{ item['image_url'] }}">
+    {% endif %}
+    {% endfor %}
+</ul>
+
 {% endblock %}

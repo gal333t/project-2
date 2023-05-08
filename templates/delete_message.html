@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<p>Are you sure you want to delete your message?</p>
+<form>
+    <input hidden name="id" value="{{ messages['id'] }}">
+    <input type="submit" value="Yes" formmethod="POST" formaction="/api/messages/delete">
+    <input type="submit" value="No" formaction="/home">
+</form>
+
+{% endblock %}

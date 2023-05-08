@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form method="POST" action="/api/messages/add">
+    <label for="user_msg">Write your message:</label>
+    <input id="user_msg" name="user_msg" required />
+    <input type="submit">
+</form>
+
+{% endblock %}
