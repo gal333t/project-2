@@ -9,6 +9,7 @@ INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/Mgj48
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/pntF5Kg/64914e03-6215-46b7-8ad8-fc1c9cf209f5.jpg', 'Ziva, Isa and me at a walk in Melbourne', 2019);
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/HKzsK9v/136df341-fd11-47af-a1dd-6c31704c39fd.jpg', 'Ziva and Fudge in a trolley', 2019);
 
+
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/5knpZ0r/fam-on-boat.jpg', 'Everyone on the boat for whale watching', 2020);
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/KxmWQ4Q/54-CC02-E8-D493-4931-A6-D0-7-A3256-AB16-A0.jpg', 'Ziva and Galit on the boat', 2020);
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/1f36gXg/ziva-granny.jpg', 'Ziva and granny', 2020);
