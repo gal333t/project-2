@@ -1,17 +1,35 @@
 * {
     background-color: rgb(53, 36, 60);
-    color: white
+    color: white;
+    font-family: 'Lato', sans-serif;
 }
 
-nav {
+nav{
     font-size: 16px;
 }
 
-a {
+a{
     color: rgb(233, 183, 183);
     font-weight: bold;
 }
 
+input {
+    background-color: rgb(169, 85, 85);
+}
+
+form {
+    margin-top: 10px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.button {
+    background-color: black;
+    color: white;
+}
 .homepage {
     color:black;
     margin: auto;
@@ -26,4 +44,8 @@ a {
 
 .deleteMessage {
     color:violet;
+}
+
+#user_msg {
+    width: 500px;
 }

@@ -18,11 +18,11 @@ def index():
     # dbname=os.getenv("PGDATABASE", "project2_8x9r"))
     connection = psycopg2.connect(os.getenv("DATABASE_URL"))
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM images;")
+    cursor.execute("SELECT * FROM messages;")
     results = cursor.fetchall()
     connection.close()
     return f"{results[0]}"
-
+    
 @app.route("/home")
 def homepage():
     return render_template("home.html")
@@ -46,7 +46,7 @@ def login_action():
 @app.route("/logout")
 def logout():
     session["user_id"] = None
-    session["user_name"] = None
+    session["username"] = None
     return redirect("/home")
 
 @app.route("/new-user")
