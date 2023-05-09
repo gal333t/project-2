@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, request, session
-import bcrypt
 import os
 import psycopg2
 from models import messages, images, user
@@ -36,7 +35,7 @@ def login_action():
     curr_user = user.get_valid_user(username, plain_text_password)
     if curr_user:
         session["user_id"] = curr_user["id"]
-        session["user_name"] = curr_user["user_name"]
+        session["username"] = curr_user["username"]
         return redirect("/home")
     else:
         return render_template("login_error.html")
@@ -46,6 +45,15 @@ def logout():
     session["user_id"] = None
     session["user_name"] = None
     return redirect("/home")
+
+@app.route("/new-user")
+def newuser():
+    return render_template("new_user.html")
+
+@app.route("/new-user", methods=["POST"])
+def newuser_action():
+    user.add_user(request.form.get("username"), request.form.get("password"))
+    return redirect("/login")    
 
 @app.route("/messages")
 def disp_messages():
@@ -86,15 +94,14 @@ def delete_message_form(id):
 
 @app.route("/api/messages/delete", methods=["POST"])
 def delete_message():
-    # TO DO add in sql commands
     messages.delete_message(request.form.get("id"))    
     return redirect("/messages")
 
-@app.route("/img_search")
+@app.route("/img-search")
 def img_search():
     return render_template("img_search.html")
 
-@app.route("/img_display", methods=["POST"])
+@app.route("/img-display", methods=["POST"])
 def img_display():
     form = request.form
     return render_template("img_display.html", images= images.get_image(form.get("img_year")))

@@ -13,4 +13,4 @@ def get_valid_user(username, plain_text_password):
 
 def add_user(username, plain_text_password):
   password_hash = bcrypt.hashpw(plain_text_password.encode(), bcrypt.gensalt()).decode()
-  common.sql_write("INSERT INTO users (username, password_hash) VALUES (%s, %s);", [username, password_hash])
+  common.sql_write("INSERT INTO users (username, user_pwd) VALUES (%s, %s);", [username, password_hash])
