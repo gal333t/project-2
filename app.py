@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
+import bcrypt
 import os
 import psycopg2
 from models import messages, images, user
@@ -52,8 +53,10 @@ def disp_messages():
 
 @app.route("/forms/messages/add")
 def add_message_form():
-    # TODO add sessions in
-    return render_template("add_message.html")
+    if session.get("user_id", ""):
+        return render_template("add_message.html")
+    else:
+        return redirect("/login")
 
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
@@ -63,8 +66,10 @@ def add_message():
 
 @app.route("/forms/messages/edit/<id>")
 def edit_message_form(id):
-    # TO DO add sessions in
-    return render_template("edit_message.html", messages=messages.get_message(id))
+    if session.get("user_id", ""):
+        return render_template("edit_message.html", messages=messages.get_message(id))
+    else:
+        return redirect("/login")    
 
 @app.route("/api/messages/edit/<id>", methods=["POST"])
 def edit_message(id):
@@ -74,8 +79,10 @@ def edit_message(id):
 
 @app.route("/forms/messages/delete")
 def delete_message_form(id):
-    # TO DO add sessions in
-    return render_template("delete_message.html", messages=messages.get_message(id))
+    if session.get("user_id", ""):
+        return render_template("delete_message.html", messages=messages.get_message(id))
+    else:
+        return redirect("/login")   
 
 @app.route("/api/messages/delete", methods=["POST"])
 def delete_message():
