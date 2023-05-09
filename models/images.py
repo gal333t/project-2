@@ -6,4 +6,3 @@ def convert_to_dictionary(item):
 def get_image(img_year):
     item = common.sql_read("SELECT * FROM images WHERE img_year=%s", [img_year])[0]
     return convert_to_dictionary(item)
-
