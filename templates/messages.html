@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% body block_content %}
+{% block body %}
 <h2>Messages from:</h2>
 <ul>
-    <li>{username will go here from for loop in list format} with a link to their page to display message. Add new
+    <li class="displayMsg">{username will go here from for loop in list format} with a link to their page to display
+        message. Add new
         column in table with link?</li>
 
 </ul>
-<p class="displayMsg">Dear mum, jinja will go here instead to capture messages typed on website</p>
 {% endblock %}
