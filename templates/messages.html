@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
-<h2>Messages from:</h2>
-<ul>
-    <li class="displayMsg">{username will go here from for loop in list format} with a link to their page to display
-        message. Add new
-        column in table with link?</li>
-
-</ul>
+<h2>With love from {{ session["username"] }}:</h2>
+<p class="displayMsg">
+    {% for message in messages %}
+    {{ message['user_msg'] }}
+    {% endfor %}
+</p>
 {% endblock %}
