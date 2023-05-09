@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect
 import os
 import psycopg2
+from models import messages
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "My secret key"
@@ -24,7 +25,7 @@ def homepage():
     return render_template("home.html")
 
 @app.route("/messages")
-def messages():
+def disp_messages():
     return render_template("messages.html")
 
 
@@ -36,7 +37,8 @@ def add_message_form():
 
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
-    # TODO add in sql commands
+    form = request.form
+    messages.insert_message(form.get("user_msg"))
     return redirect("/messages")
 
 
