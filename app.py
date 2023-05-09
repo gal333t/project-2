@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session
 import os
 import psycopg2
 from models import messages
@@ -27,6 +27,24 @@ def homepage():
 @app.route("/login")
 def loginpage():
     return render_template("login.html")
+
+@app.route('/login', methods=['POST'])
+def login_action():
+    username = request.form.get("username")
+    #TO DO CHECK PASSWORD
+    curr_user = user.get_user("WHERE username=%s", [username])
+    if curr_user:
+        session["user_id"] = curr_user["id"]
+        session["user_name"] = curr_user["user_name"]
+        return redirect('/home')
+    else:
+        return render_template("login_error.html")
+
+@app.route("/logout")
+def logout():
+    session["user_id"] = None
+    session["user_name"] = None
+    return redirect("/home")
 
 @app.route("/messages")
 def disp_messages():

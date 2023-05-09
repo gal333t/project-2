@@ -5,3 +5,7 @@
 .deleteMessage {
     color:violet;
 }
+
+.loginError{
+    color:red;
+}
