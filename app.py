@@ -60,8 +60,11 @@ def newuser_action():
 
 @app.route("/messages")
 def disp_messages():
-    return render_template("messages.html")
-
+    if session.get("user_id", ""):
+        return render_template("messages.html", messages=messages.get_all_messages())   
+    else:
+        return redirect("/login")
+            
 @app.route("/forms/messages/add")
 def add_message_form():
     if session.get("user_id", ""):
