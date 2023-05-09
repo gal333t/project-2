@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
-<h2>With love from {{ session["username"] }}:</h2>
-<p class="displayMsg">
+<div>
     {% for message in messages %}
-    {{ message['user_msg'] }}
+    {% if session["username"] == message["username"] %}
+    <h2>A message from {{ session["username"] }}:</h2>
+    <p class="displayMsg"> {{ message["user_msg"] }}</p>
+    {% endif %}
     {% endfor %}
-</p>
+</div>
 {% endblock %}
