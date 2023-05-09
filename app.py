@@ -7,6 +7,8 @@ from models import messages, images, user
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "My secret key"
 
+db_env_constant = "DATABASE_URL"
+
 @app.route("/")
 def index():
     # connection = psycopg2.connect(host=os.getenv("PGHOST", "dpg-ch8fge5gk4q7lmq3l460-a.oregon-postgres.render.com"),
