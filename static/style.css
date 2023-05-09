@@ -1,11 +1,29 @@
+* {
+    background-color: rgb(53, 36, 60);
+    color: white
+}
+
+nav {
+    font-size: 16px;
+}
+
+a {
+    color: rgb(233, 183, 183);
+    font-weight: bold;
+}
+
+.homepage {
+    color:black;
+    margin: auto;
+    text-align: center;
+    width: 550px;
+}
+
 .displayMsg{
-    color: red;
+    font-size: 20px;
+    color: rgb(130, 206, 236);
 }
 
 .deleteMessage {
     color:violet;
-}
-
-.loginError{
-    color:red;
 }
