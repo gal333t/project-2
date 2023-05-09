@@ -1,3 +1,7 @@
-#displayMsg{
+.displayMsg{
     color: red;
+}
+
+.deleteMessage {
+    color:violet;
 }
