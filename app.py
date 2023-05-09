@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 import os
 import psycopg2
 from models import messages
@@ -50,9 +50,9 @@ def edit_message_form():
 
 @app.route("/api/messages/edit/<id>", methods=["POST"])
 def edit_message(id):
-    # TODO add in sql commands
+    form = request.form
+    messages.edit_message(id, form.get("user_msg"))
     return redirect("/messages")
-
 
 
 
