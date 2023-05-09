@@ -4,14 +4,19 @@ DROP TABLE users;
 CREATE TABLE images(id SERIAL PRIMARY KEY, img_url TEXT NOT NULL, text_desc TEXT NOT NULL, img_year INTEGER NOT NULL);
 DROP TABLE images;
 
-CREATE TABLE messages(id SERIAL PRIMARY KEY, user_msg TEXT NOT NULL);
+CREATE TABLE messages(id SERIAL PRIMARY KEY, username TEXT NOT NULL, user_msg TEXT NOT NULL);
 DROP TABLE messages;
 
 INSERT INTO users(name, username, user_pwd) VALUES (%s, %s);
 
+INSERT INTO messages(username, user_msg) VALUES('Galit', 'Mom, you are the glue that holds our family together, the sunshine on a cloudy day, and the chocolate chips in our cookies!');
 
 
 INSERT INTO images(img_url, text_desc, img_year) VALUES (%s, %s, %s);
+
+INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/NNVbbKm/H-D-Wedding-01242.jpg', 'Hannah and Ziva at the wedding', 2021);
+
+
 <img src="https://i.ibb.co/yPSjJyX/c91ca8b9-eb4f-4521-a86e-04694a50f256.jpg"> 2022, Janine Ziva at someones 90th
 <img src="https://i.ibb.co/NNVbbKm/H-D-Wedding-01605.jpg"> 2021 Hannah wedding me Gabi Ziva Hannah 
 <img src="https://i.ibb.co/sj70p5F/H-D-Wedding-01242.jpg"> 2021 Hannah & Ziva

@@ -1,7 +1,7 @@
 from models import common
 
 def convert_to_dictionary(item):
-    return {"id": str(item[0]), "user_msg": item[1]}
+    return {"id": str(item[0]), "username": item[1], "user_msg": item[2]}
 
 def insert_message(user_msg):
     common.sql_write("INSERT INTO messages (user_msg) VALUES (%s);", [user_msg])
