@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, session
 import os
 import psycopg2
+import bcrypt
 from models import messages, images, user
 
 app = Flask(__name__)
