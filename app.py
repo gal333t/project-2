@@ -24,11 +24,13 @@ def index():
 def homepage():
     return render_template("home.html")
 
+@app.route("/login")
+def loginpage():
+    return render_template("login.html")
+
 @app.route("/messages")
 def disp_messages():
     return render_template("messages.html")
-
-
 
 @app.route("/forms/messages/add")
 def add_message_form():
@@ -41,7 +43,6 @@ def add_message():
     messages.insert_message(form.get("user_msg"))
     return redirect("/messages")
 
-
 @app.route("/forms/messages/edit/<id>")
 def edit_message_form(id):
     # TO DO add sessions in
@@ -53,7 +54,6 @@ def edit_message(id):
     messages.edit_message(id, form.get("user_msg"))
     return redirect("/messages")
 
-
 @app.route("/forms/messages/delete")
 def delete_message_form(id):
     # TO DO add sessions in
@@ -64,7 +64,6 @@ def delete_message():
     # TO DO add in sql commands
     messages.delete_message(request.form.get("id"))    
     return redirect("/messages")
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))
