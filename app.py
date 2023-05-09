@@ -59,7 +59,7 @@ def delete_message_form(id):
     # TO DO add sessions in
     return render_template("delete_message.html", messages=messages.get_message(id))
 
-@app.route("/api/messages/delete/<id>", methods=["POST"])
+@app.route("/api/messages/delete", methods=["POST"])
 def delete_message():
     # TO DO add in sql commands
     messages.delete_message(request.form.get("id"))    
