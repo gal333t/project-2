@@ -43,10 +43,10 @@ def add_message():
 
 
 
-@app.route("/forms/messages/edit")
-def edit_message_form():
+@app.route("/forms/messages/edit/<id>")
+def edit_message_form(id):
     # TODO add sessions in
-    return render_template("edit_message.html")
+    return render_template("edit_message.html", user_msg=messages.get_message(id))
 
 @app.route("/api/messages/edit/<id>", methods=["POST"])
 def edit_message(id):
