@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, session
 import os
 import psycopg2
-from models import messages
+from models import messages, images, user
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "My secret key"
@@ -82,6 +82,16 @@ def delete_message():
     # TO DO add in sql commands
     messages.delete_message(request.form.get("id"))    
     return redirect("/messages")
+
+@app.route("/img_search")
+def img_search():
+    return render_template("img_search.html")
+
+@app.route("/img_display", methods=["POST"])
+def img_display():
+    form = request.form
+    return render_template("img_display.html", images= images.get_image(form.get("img_year")))
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))

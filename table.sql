@@ -11,7 +11,7 @@ INSERT INTO users(name, username, user_pwd) VALUES (%s, %s);
 
 
 
-INSERT INTO images(name, img_url, text_desc, img_year) VALUES (%s, %s, %s);
+INSERT INTO images(img_url, text_desc, img_year) VALUES (%s, %s, %s);
 <img src="https://i.ibb.co/yPSjJyX/c91ca8b9-eb4f-4521-a86e-04694a50f256.jpg"> 2022, Janine Ziva at someones 90th
 <img src="https://i.ibb.co/NNVbbKm/H-D-Wedding-01605.jpg"> 2021 Hannah wedding me Gabi Ziva Hannah 
 <img src="https://i.ibb.co/sj70p5F/H-D-Wedding-01242.jpg"> 2021 Hannah & Ziva

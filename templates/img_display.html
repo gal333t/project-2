@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div>
+    {% for image in images %}
+    <img src=" {{ item['image_url'] }}">
+    <p> {{ item['text_desc'] }} </p>
+    {% endfor %}
+</div>
+
+{% endblock %}
