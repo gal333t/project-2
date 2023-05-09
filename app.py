@@ -7,13 +7,11 @@ from models import messages, images, user
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "My secret key"
 
-db_env_constant = "DATABASE_URL"
-
 @app.route("/")
 def index():
     # connection = psycopg2.connect(host=os.getenv("PGHOST", "dpg-ch8fge5gk4q7lmq3l460-a.oregon-postgres.render.com"),
     # user=os.getenv("PGUSER", "pg"),
-    # password=os.getenv("PGPASSWORD", "pSyCdeo1JQVO7wzGZm2wCEUOUXb5Axo9"),
+    # password=os.getenv("PGPASSWORD"),
     # port=os.getenv("PGPORT", "5432"),
     # dbname=os.getenv("PGDATABASE", "project2_8x9r"))
     connection = psycopg2.connect(os.getenv("DATABASE_URL"))
