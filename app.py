@@ -42,11 +42,10 @@ def add_message():
     return redirect("/messages")
 
 
-
 @app.route("/forms/messages/edit/<id>")
 def edit_message_form(id):
-    # TODO add sessions in
-    return render_template("edit_message.html", user_msg=messages.get_message(id))
+    # TO DO add sessions in
+    return render_template("edit_message.html", messages=messages.get_message(id))
 
 @app.route("/api/messages/edit/<id>", methods=["POST"])
 def edit_message(id):
@@ -55,15 +54,15 @@ def edit_message(id):
     return redirect("/messages")
 
 
-
 @app.route("/forms/messages/delete")
-def delete_message_form():
-    # TODO add sessions in
-    return render_template("delete_message.html")
+def delete_message_form(id):
+    # TO DO add sessions in
+    return render_template("delete_message.html", messages=messages.get_message(id))
 
 @app.route("/api/messages/delete/<id>", methods=["POST"])
-def delete_message(id):
-    # TODO add in sql commands
+def delete_message():
+    # TO DO add in sql commands
+    messages.delete_message(request.form.get("id"))    
     return redirect("/messages")
 
 
