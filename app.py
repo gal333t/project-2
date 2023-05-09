@@ -29,15 +29,15 @@ def homepage():
 def loginpage():
     return render_template("login.html")
 
-@app.route('/login', methods=['POST'])
+@app.route("/login", methods=["POST"])
 def login_action():
     username = request.form.get("username")
-    #TO DO CHECK PASSWORD
-    curr_user = user.get_user("WHERE username=%s", [username])
+    plain_text_password = request.form.get("password")
+    curr_user = user.get_valid_user(username, plain_text_password)
     if curr_user:
         session["user_id"] = curr_user["id"]
         session["user_name"] = curr_user["user_name"]
-        return redirect('/home')
+        return redirect("/home")
     else:
         return render_template("login_error.html")
 
