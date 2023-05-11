@@ -92,7 +92,10 @@ def delete_message():
 
 @app.route("/img-search")
 def img_search():
-    return render_template("img_search.html")
+    if session.get("user_id"):
+        return render_template("img_search.html")
+    else:
+        return redirect("/login")
 
 @app.route("/img-display", methods=["POST"])
 def img_display():
