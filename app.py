@@ -47,14 +47,14 @@ def newuser_action():
 
 @app.route("/messages")
 def disp_messages():
-    if session.get("user_id", ""):
+    if session.get("user_id"):
         return render_template("messages.html", messages=messages.get_all_messages())   
     else:
         return redirect("/login")
             
 @app.route("/forms/messages/add")
 def add_message_form():
-    if session.get("user_id", ""):
+    if session.get("user_id"):
         return render_template("add_message.html")
     else:
         return redirect("/login")
@@ -67,7 +67,7 @@ def add_message():
 
 @app.route("/forms/messages/edit/<id>")
 def edit_message_form(id):
-    if session.get("user_id", ""):
+    if session.get("user_id"):
         return render_template("edit_message.html", messages=messages.get_message(id))
     else:
         return redirect("/login")    
@@ -80,7 +80,7 @@ def edit_message(id):
 
 @app.route("/forms/messages/delete/<id>")
 def delete_message_form(id):
-    if session.get("user_id", ""):
+    if session.get("user_id"):
         return render_template("delete_message.html", messages=messages.get_message(id))
     else:
         return redirect("/login")   
@@ -92,7 +92,10 @@ def delete_message():
 
 @app.route("/message-actions")
 def message_actions():
-    return render_template("message-actions.html")
+    if session.get("user_id"):
+        return render_template("message-actions.html")
+    else:
+        return redirect("/login")
 
 @app.route("/img-search")
 def img_search():
