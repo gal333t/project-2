@@ -1,6 +1,5 @@
 from models import common
 import random
-import psycopg2
 
 def convert_to_dictionary(item):
     return {"id": str(item[0]), "img_url": item[1], "text_desc": item[2], "img_year": item[3]}
@@ -12,9 +11,5 @@ def get_image(img_year):
     return convert_to_dictionary(item)
 
 def get_all_images():
-    connection = psycopg2.connect(dbname="database_url")
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM images")
-    results = cursor.fetchall()
-    connection.close()
-    return convert_to_dictionary(results)
+    images = common.sql_read("SELECT * FROM images")
+    return [convert_to_dictionary(image) for image in images]
