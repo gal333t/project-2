@@ -2,10 +2,12 @@
 {% block body %}
 
 
-<div class="img_display">
+<ul class="img_display">
     {% for image in images %}
-    <img src="{{ image['img_url'] }}">
+    <li class="img_list">
+        <img src="{{ image['img_url'] }}">
+    </li>
     {% endfor %}
-</div>
+</ul>
 
 {% endblock %}
