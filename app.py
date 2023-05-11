@@ -5,21 +5,13 @@ import bcrypt
 from models import messages, images, user
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "My secret key"
 
 @app.route("/")
 def index():
-    # connection = psycopg2.connect(host=os.getenv("PGHOST", "dpg-ch8fge5gk4q7lmq3l460-a.oregon-postgres.render.com"),
-    # user=os.getenv("PGUSER", "pg"),
-    # password=os.getenv("PGPASSWORD"),
-    # port=os.getenv("PGPORT", "5432"),
-    # dbname=os.getenv("PGDATABASE", "project2_8x9r"))
-    connection = psycopg2.connect(os.getenv("DATABASE_URL"))
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM messages;")
-    results = cursor.fetchall()
-    connection.close()
-    return f"{results[0]}"
+    if session.get("user_id", ""):
+        return redirect("/home")
+    else:
+        return redirect("/login")
     
 @app.route("/home")
 def homepage():
