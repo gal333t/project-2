@@ -5,14 +5,14 @@ import bcrypt
 from models import messages, images, user
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "My secret key"
 
 @app.route("/")
 def index():
-    return render_template("home.html")
-    
-# @app.route("/home")
-# def homepage():
-#     return render_template("home.html")
+    if session.get("user_id"):
+        return render_template("home.html")
+    else:
+        return redirect("/login")
 
 @app.route("/login")
 def loginpage():
@@ -34,7 +34,7 @@ def login_action():
 def logout():
     session["user_id"] = None
     session["username"] = None
-    return redirect("/home")
+    return redirect("/")
 
 @app.route("/new-user")
 def newuser():
@@ -98,7 +98,6 @@ def img_search():
 def img_display():
     form = request.form
     return render_template("img_display.html", images= images.get_image(form.get("img_year")))
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))
