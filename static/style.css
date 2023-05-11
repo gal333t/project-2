@@ -8,16 +8,12 @@ nav{
     font-size: 16px;
 }
 
-h4 {
-    margin-bottom: -5px;
-}
-
 a{
     color: rgb(233, 183, 183);
     font-weight: bold;
 }
 
-input {
+input, button {
     background-color: rgb(169, 85, 85);
 }
 
@@ -26,8 +22,12 @@ form {
 }
 
 img {
-    width: 30%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
+}
+
+h4 {
+    margin-bottom: -5px;
 }
 
 .button {
@@ -48,6 +48,14 @@ img {
 
 .img_display{
     margin: 20px;
+    width: 30%;
+    height: 30%;
+}
+
+.img_all {
+    margin: 4px;
+    width: 30%;
+    height: 30%;
 }
 
 .deleteMessage {

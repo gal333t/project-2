@@ -103,5 +103,9 @@ def img_display():
     form = request.form
     return render_template("img_display.html", images= images.get_image(form.get("img_year")))
 
+@app.route("/img-all")
+def img_display_all():
+    return render_template("img_all.html", images=images.get_all_images())
+
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))

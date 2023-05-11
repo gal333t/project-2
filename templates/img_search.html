@@ -8,4 +8,10 @@
     <input type="submit">
 </form>
 
+{% if session["username"] == "Ziva" %}
+<form action="/img-all">
+    <button type="submit">See all photos</button>
+</form>
+{% endif %}
+
 {% endblock %}
