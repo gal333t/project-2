@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
+<h4>Sign in:</h4>
 <form method="POST">
     <label for="username">Username</label>
     <input id="username" type="username" name="username">
@@ -10,4 +11,5 @@
 
     <input type="submit">
 </form>
+<a href="/new-user" class="signup">Sign up now</a>
 {% endblock %}

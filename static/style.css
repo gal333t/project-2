@@ -8,6 +8,10 @@ nav{
     font-size: 16px;
 }
 
+h4 {
+    margin-bottom: -5px;
+}
+
 a{
     color: rgb(233, 183, 183);
     font-weight: bold;
@@ -25,6 +29,7 @@ img {
     width: 40%;
     height: 40%;
 }
+
 .button {
     background-color: black;
     color: white;
@@ -47,6 +52,10 @@ img {
 
 .deleteMessage {
     color:violet;
+}
+
+.signup {
+    font-size: 14px;
 }
 
 #user_msg {
