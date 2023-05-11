@@ -12,6 +12,7 @@
         <a href="/messages">Messages</a>
         <a href="/img-search">Photos</a>
         {% if session["username"] %}
+        <a href="/account">Account</a>
         Hello {{ session["username"] }}!
         <a href="/logout">Logout</a>
         {% else %}
