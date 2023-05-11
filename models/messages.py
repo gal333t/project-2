@@ -11,8 +11,8 @@ def get_message(id):
     return convert_to_dictionary(item)
 
 def get_all_messages():
-    items = common.sql_read("SELECT * FROM messages;")
-    return [convert_to_dictionary(item) for item in items]
+    messages = common.sql_read("SELECT * FROM messages;")
+    return [convert_to_dictionary(message) for message in messages]
 
 def edit_message(id, user_msg):
     common.sql_write(f"UPDATE messages SET user_msg=%s WHERE id={id}", [user_msg])
