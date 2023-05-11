@@ -4,7 +4,7 @@
     {% for message in messages %}
     {% if session["username"] == "Ziva" %}
     <h2>Some messages from your children:</h2>
-    {{ message["user_msg"] }}
+    <p class="displayMsg">{{ message["user_msg"] }} - <em>{{ message["username"] }}</em></p>
     {% elif session["username"] == message["username"] %}
     <h2>A message from {{ session["username"] }}:</h2>
     <p class="displayMsg"> {{ message["user_msg"] }}</p>
