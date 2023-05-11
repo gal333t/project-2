@@ -66,10 +66,10 @@ def add_message():
     messages.insert_message(form.get("user_msg"), form.get("username")) 
     return redirect("/messages")
 
-@app.route("/forms/messages/edit/<id>")
-def edit_message_form(id):
+@app.route("/forms/messages/edit/<username>")
+def edit_message_form(username):
     if session.get("user_id"):
-        return render_template("edit_message.html", messages=messages.get_message(id))
+        return render_template("edit_message.html", messages=messages.get_all_edit(username))
     else:
         return redirect("/login")    
 
@@ -78,7 +78,7 @@ def edit_message(id):
     form = request.form
     messages.edit_message(id, form.get("user_msg"))
     return redirect("/messages")
-
+ 
 @app.route("/forms/messages/delete/<id>")
 def delete_message_form(id):
     if session.get("user_id"):

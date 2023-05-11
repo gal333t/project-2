@@ -17,5 +17,9 @@ def get_all_messages():
 def edit_message(id, user_msg):
     common.sql_write(f"UPDATE messages SET user_msg=%s WHERE id={id}", [user_msg])
 
+def get_all_edit(username):
+    messages = common.sql_read("SELECT * FROM messages WHERE username=%s;", [username])
+    return [convert_to_dictionary(message) for message in messages]
+
 def delete_message(id):
     common.sql_write(f"DELETE FROM messages WHERE id={id}", [id])
