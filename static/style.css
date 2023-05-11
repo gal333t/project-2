@@ -22,10 +22,9 @@ form {
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 40%;
+    height: 40%;
 }
-
 .button {
     background-color: black;
     color: white;
