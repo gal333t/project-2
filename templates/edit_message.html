@@ -4,8 +4,10 @@
 
 <form method="POST" action="/api/messages/edit/{{ messages['id'] }}">
     <label for="user_msg">Edit your message:</label>
+    {% for message in messages %}
     <input id="user_msg" name="user_msg" value="{{ messages['user_msg'] }}" required />
     <input type="submit">
+    {% endfor %}
 </form>
 
 {% endblock %}

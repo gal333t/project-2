@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% block body %}
+<nav class="messageNav">
+    <a href="/forms/messages/add">Add message</a>
+    <a href="/forms/messages/edit/{ message['id'] }">Edit message</a>
+    <a href="/forms/messages/delete/{ message['id'] }">Delete message</a>
+</nav>
 <div>
     {% if session["username"] == "Ziva" %}
     <h2>Some messages from your children:</h2>
+    {% else %}
+    <h2>From {{ session["username"] }}:</h2>
     {% endif %}
     {% for message in messages %}
     {% if session["username"] == "Ziva" %}
     <p class="displayMsg">{{ message["user_msg"] }} - <em>{{ message["username"] }}</em></p>
     {% elif session["username"] == message["username"] %}
-    <h2>A message from {{ session["username"] }}:</h2>
     <p class="displayMsg"> {{ message["user_msg"] }}</p>
     {% endif %}
     {% endfor %}
