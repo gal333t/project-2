@@ -22,8 +22,8 @@ form {
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 .button {
@@ -40,6 +40,10 @@ img {
 .displayMsg{
     font-size: 20px;
     color: rgb(130, 206, 236);
+}
+
+.img_display{
+    margin: 0 auto;
 }
 
 .deleteMessage {
