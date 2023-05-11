@@ -15,7 +15,7 @@ INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/1f36g
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/g6s6LdM/ziva-liat-vineyard.jpg', 'Ziva and Liat in the Mornington Peninsula', 2020);
 
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/NNVbbKm/H-D-Wedding-01605.jpg', 'Ziva, Hannah, Gabi and Galit', 2021);
-INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/NNVbbKm/H-D-Wedding-01242.jpg', 'Hannah and Ziva at Hannah and Dans wedding', 2021);
+INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/TLBpwyM/H-D-Wedding-H-Z.jpg', 'Hannah and Ziva at Hannah and Dans wedding', 2021);
 
 
 INSERT INTO images(img_url, text_desc, img_year) VALUES ('https://i.ibb.co/RhfQs16/kurr-fam.jpg', 'Kurr family with Galit, Ziva and Liat', 2022);

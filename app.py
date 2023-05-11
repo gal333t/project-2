@@ -78,7 +78,7 @@ def edit_message(id):
     form = request.form
     messages.edit_message(id, form.get("user_msg"))
     return redirect("/messages")
- 
+    
 @app.route("/forms/messages/delete/<id>")
 def delete_message_form(id):
     if session.get("user_id"):
