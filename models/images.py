@@ -6,6 +6,5 @@ def convert_to_dictionary(item):
 
 def get_image(img_year):
     num_entries = common.sql_read("SELECT COUNT(img_year) FROM images WHERE img_year=%s", [img_year])[0][0]
-    random_num =random.randint(0, num_entries-1)
-    item = common.sql_read("SELECT * FROM images WHERE img_year=%s", [img_year])[random_num]
+    item = common.sql_read("SELECT * FROM images WHERE img_year=%s", [img_year])[random.randint(0, num_entries-1)]
     return convert_to_dictionary(item)
