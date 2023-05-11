@@ -62,7 +62,8 @@ def add_message_form():
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
     form = request.form
-    messages.insert_message(form.get("user_msg"), form.get("username"))
+    print(form.get("username"))
+    messages.insert_message(form.get("user_msg"), form.get("username")) 
     return redirect("/messages")
 
 @app.route("/forms/messages/edit/<id>")
