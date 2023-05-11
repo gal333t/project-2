@@ -8,14 +8,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    if session.get("user_id", ""):
-        return redirect("/home")
-    else:
-        return redirect("/login")
-    
-@app.route("/home")
-def homepage():
     return render_template("home.html")
+    
+# @app.route("/home")
+# def homepage():
+#     return render_template("home.html")
 
 @app.route("/login")
 def loginpage():
@@ -29,7 +26,7 @@ def login_action():
     if curr_user:
         session["user_id"] = curr_user["id"]
         session["username"] = curr_user["username"]
-        return redirect("/home")
+        return redirect("/")
     else:
         return render_template("login_error.html")
 
