@@ -90,6 +90,10 @@ def delete_message():
     messages.delete_message(request.form.get("id"))    
     return redirect("/messages")
 
+@app.route("/message-actions")
+def message_actions():
+    return render_template("message-actions.html")
+
 @app.route("/img-search")
 def img_search():
     if session.get("user_id"):
