@@ -2,7 +2,7 @@
 
 {% block head %}
 {% if session["username"] != "Ziva" %}
-<li><a href="/forms/messages/add">Add messages</a></li>
+<li><a href="/forms/messages/add">| Add messages</a></li>
 <li><a href="/forms/messages/edit/{{ username }}">Edit messages</a></li>
 <li><a href="/forms/messages/delete/{{ username }}">Delete messages</a></li>
 {% endif %}
