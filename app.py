@@ -48,10 +48,11 @@ def newuser_action():
 @app.route("/messages")
 def disp_messages():
     if session.get("user_id"):
-        return render_template("messages.html", messages=messages.get_all_messages())   
+        username = session["username"]
+        return render_template("messages.html", messages=messages.get_all_messages(), username=username)   
     else:
         return redirect("/login")
-            
+                  
 @app.route("/forms/messages/add")
 def add_message_form():
     if session.get("user_id"):
@@ -62,7 +63,6 @@ def add_message_form():
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
     form = request.form
-    print(form.get("username"))
     messages.insert_message(form.get("user_msg"), form.get("username")) 
     return redirect("/messages")
 
@@ -106,6 +106,7 @@ def img_display():
 @app.route("/img-all")
 def img_display_all():
     return render_template("img_all.html", images=images.get_all_images())
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))
