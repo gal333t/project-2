@@ -14,4 +14,10 @@
 </form>
 {% endif %}
 
+{% if session["username"] == "Galit" %}
+<form action="/img-all">
+    <button type="submit" formaction="/add-image">Add photos</button>
+</form>
+{% endif %}
+
 {% endblock %}

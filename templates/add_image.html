@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form method="POST" action="/api/images/add">
+    <label for="img_url">Add the photo url:</label>
+    <input id="img_url" name="img_url" required />
+
+    <label for="text_desc">Add a description:</label>
+    <input id="text_desc" name="text_desc" required />
+
+    <label for="img_year">Add the year:</label>
+    <input id="img_year" name="img_year" required />
+
+    <input type="submit">
+</form>
+
+{% endblock %}
