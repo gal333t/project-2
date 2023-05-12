@@ -16,3 +16,11 @@ def get_all_images():
 
 def add_image(img_url, text_desc, img_year):
     common.sql_write("INSERT INTO images(img_url, text_desc, img_year) VALUES (%s, %s, %s);", [img_url, text_desc, img_year])
+
+def get_image_id(id):
+    item = common.sql_read("SELECT * FROM images WHERE id=%s", [id])[0]
+    return convert_to_dictionary(item)
+
+def edit_image(id, img_url, text_desc, img_year):
+    common.sql_write(f"UPDATE images SET img_url=%s, text_desc=%s, img_year=%s WHERE id={id}", [img_url, text_desc, img_year])
+    return
