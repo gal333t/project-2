@@ -36,7 +36,6 @@ li {
     display: inline;
 }
 
-
 .homepage {
     margin: auto;
     text-align: center;
@@ -46,6 +45,7 @@ li {
 .displayMsg{
     font-size: 20px;
     color: rgb(205, 236, 249);
+    margin-right: 200px;
 }
 
 .img_display{
