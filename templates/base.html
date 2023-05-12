@@ -8,15 +8,17 @@
 </head>
 <header>
     <nav>
-        <a href="/">Home</a>
-        <a href="/messages">Messages</a>
-        <a href="/img-search">Photos</a>
-        {% if session["username"] %}
-        Hello {{ session["username"] }}!
-        <a href="/logout">Logout</a>
-        {% else %}
-        <a href="/login">Login</a>
-        {% endif %}
+        <ul class="navBar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/messages">Messages</a></li>
+            <li><a href="/img-search">Photos</a></li>
+            {% if session["username"] %}
+            Hello {{ session["username"] }}!
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/login">Login</a></li>
+            {% endif %}
+        </ul>
     </nav>
 </header>
 
