@@ -67,16 +67,15 @@ li {
 }
 
 .signup {
+    text-decoration: underline;
     font-size: 14px;
 }
 
 .navBar {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    padding: 2px;
 }
 
 #user_msg {
     width: 500px;
 }
-
