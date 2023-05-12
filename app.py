@@ -55,6 +55,9 @@ def disp_messages():
 def add_message_form():
     if session.get("user_id"):
         return render_template("add_message.html")
+    else:
+        return redirect("/login")
+
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
     form = request.form
@@ -102,7 +105,7 @@ def img_display():
 def img_display_all():
     return render_template("img_all.html", images=images.get_all_images())
 
-@app.route("/forms/food/add")
+@app.route("/forms/image/add")
 def add_image_form():
     if session.get("user_id"):
         return render_template("add_image.html")
@@ -114,6 +117,6 @@ def api_image_add():
     form = request.form
     images.add_image(form.get("img_url"), form.get("text_desc"), form.get("img_year"))
     return redirect("/img-search")
-
+    
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))
