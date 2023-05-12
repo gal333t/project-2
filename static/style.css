@@ -4,17 +4,18 @@
     font-family: 'Lato', sans-serif;
 }
 
-nav{
-    font-size: 16px;
-}
-
 a{
     color: rgb(233, 183, 183);
     font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }
 
 input, button {
-    background-color: rgb(169, 85, 85);
+    background-color: rgba(169, 85, 85, 0.526);
 }
 
 form {
@@ -30,7 +31,7 @@ h4 {
     margin-bottom: -5px;
 }
 
-.button {
+.button{
     background-color: black;
     color: white;
 }
@@ -62,7 +63,7 @@ h4 {
     list-style: none;
 }
 .deleteMessage {
-    color:violet;
+    color: rgb(130, 206, 236);
 }
 
 .signup {
