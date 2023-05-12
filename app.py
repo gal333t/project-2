@@ -5,7 +5,6 @@ import bcrypt
 from models import messages, images, user
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "My secret key"
 
 @app.route("/")
 def index():
@@ -106,6 +105,19 @@ def img_display():
 @app.route("/img-all")
 def img_display_all():
     return render_template("img_all.html", images=images.get_all_images())
+
+@app.route("/forms/food/add")
+def add_image_form():
+    if session.get("user_id"):
+        return render_template("add_image.html")
+    else:
+        return redirect("/login")    
+
+@app.route("/api/image/add", methods=["POST"])
+def api_image_add():
+    form = request.form
+    images.add_image(form.get("img_url"), form.get("text_desc"), form.get("img_year"))
+    return redirect("/img-search")
 
 
 if __name__ == "__main__":

@@ -13,3 +13,6 @@ def get_image(img_year):
 def get_all_images():
     images = common.sql_read("SELECT * FROM images")
     return [convert_to_dictionary(image) for image in images]
+
+def add_image(img_url, text_desc, img_year):
+    common.sql_write("INSERT INTO images(img_url, text_desc, img_year) VALUES (%s, %s, %s);", [img_url, text_desc, img_year])

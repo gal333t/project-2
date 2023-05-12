@@ -2,7 +2,9 @@
 
 {% block body %}
 
-<form method="POST" action="/api/images/add">
+{% if session["username"] == "Galit" %}
+
+<form method="POST" action="/api/image/add">
     <label for="img_url">Add the photo url:</label>
     <input id="img_url" name="img_url" required />
 
@@ -15,4 +17,9 @@
     <input type="submit">
 </form>
 
+{% else %}
+<h3>Error</h3>
+<p>Please make sure the correct user is logged in</p>
+
+{% endif %}
 {% endblock %}
