@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form method="POST" action="/api/image/edit/{{ image['id'] }}">
+    <label for="img_url">Edit image:</label>
+    <input hidden name="id" value="{{ image['id'] }}">
+    <input id="img_url" name="img_url" value="{{ image['img_url'] }}" required />
+    <input id="text_desc" name="text_desc" value="{{ image['text_desc'] }}" required />
+    <input id="img_year" name="img_year" value="{{ image['img_year'] }}" required />
+    <input type="submit">
+</form>
+
+{% endblock %}
