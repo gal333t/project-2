@@ -2,12 +2,14 @@
 
 {% block body %}
 
-<p>Are you sure you want to delete the following message?</p>
+<p>Delete:</p>
+{% for message in messages %}
 <form>
-    <input hidden name="id" value="{{ messages['id'] }}">
-    <p class="deleteMessage">"{{ messages['user_msg'] }}"</p>
-    <input type="submit" value="Yes" formmethod="POST" formaction="/api/messages/delete">
-    <input type="submit" value="No" formaction="/home">
+    <input hidden name="id" value="{{ message['id'] }}">
+    <p class="deleteMessage">"{{ message['user_msg'] }}"</p>
+    <input type="submit" value="Yes" formmethod="POST" formaction="/api/messages/delete" class="button">
+    <input type="submit" value="No" formaction="/messages" class="button">
 </form>
+{% endfor %}
 
 {% endblock %}

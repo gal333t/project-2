@@ -2,8 +2,9 @@
 {% block body %}
 <nav class="messageNav">
     {% if session["username"] != "Ziva" %}
-    <a href="/forms/messages/add">Add message</a>
-    <a href="/forms/messages/edit/{{ username }}">Edit message</a>
+    <a href="/forms/messages/add">Add messages</a>
+    <a href="/forms/messages/edit/{{ username }}">Edit messages</a>
+    <a href="/forms/messages/delete/{{ username }}">Delete messages</a>
     {% endif %}
 </nav>
 <div>

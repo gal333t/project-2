@@ -79,10 +79,10 @@ def edit_message(id):
     messages.edit_message(id, form.get("user_msg"))
     return redirect("/messages")
     
-@app.route("/forms/messages/delete/<id>")
-def delete_message_form(id):
+@app.route("/forms/messages/delete/<username>")
+def delete_message_form(username):
     if session.get("user_id"):
-        return render_template("delete_message.html", messages=messages.get_message(id))
+        return render_template("delete_message.html", messages=messages.get_all_edit(username))
     else:
         return redirect("/login")   
 
