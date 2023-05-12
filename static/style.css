@@ -54,7 +54,7 @@ li {
     height: 50%;
 }
 
-.img_all {
+.img_all, .deleteImg{
     margin: 5px;
     width: 50%;
     height: 50%;
