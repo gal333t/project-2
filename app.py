@@ -1,7 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
 import os
-import psycopg2
-import bcrypt
 from models import messages, images, user
 
 app = Flask(__name__)
@@ -56,9 +54,6 @@ def disp_messages():
 def add_message_form():
     if session.get("user_id"):
         return render_template("add_message.html")
-    else:
-        return redirect("/login")
-
 @app.route("/api/messages/add", methods=["POST"])
 def add_message():
     form = request.form
@@ -118,7 +113,6 @@ def api_image_add():
     form = request.form
     images.add_image(form.get("img_url"), form.get("text_desc"), form.get("img_year"))
     return redirect("/img-search")
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))
