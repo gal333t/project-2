@@ -3,6 +3,7 @@ import os
 from models import messages, images, user
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "My secret key"
 
 @app.route("/")
 def index():
