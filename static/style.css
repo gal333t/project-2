@@ -1,5 +1,5 @@
 * {
-    background-color: rgb(53, 36, 60);
+    background-color: rgb(55, 47, 47);
     color: white;
     font-family: 'Lato', sans-serif;
 }
@@ -15,7 +15,8 @@ a:hover{
 }
 
 input, button {
-    background-color: rgba(169, 85, 85, 0.526);
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
 
 form {
@@ -44,7 +45,7 @@ li {
 
 .displayMsg{
     font-size: 20px;
-    color: rgb(130, 206, 236);
+    color: rgb(205, 236, 249);
 }
 
 .img_display{
@@ -61,9 +62,6 @@ li {
 
 .img_list{
     list-style: none;
-}
-.deleteMessage {
-    color: rgb(130, 206, 236);
 }
 
 .signup {
