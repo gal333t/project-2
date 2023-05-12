@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% block body %}
+
 
 {% if session["username"] != "Ziva" %}
-<nav class="messageNav">
-    <ul>
-        <li><a href="/forms/messages/add">Add messages</a></li>
-        <li><a href="/forms/messages/edit/{{ username }}">Edit messages</a></li>
-        <li><a href="/forms/messages/delete/{{ username }}">Delete messages</a></li>
-    </ul>
-</nav>
+
+{% block head %}
+<li><a href="/forms/messages/add">Add messages</a></li>
+<li><a href="/forms/messages/edit/{{ username }}">Edit messages</a></li>
+<li><a href="/forms/messages/delete/{{ username }}">Delete messages</a></li>
+{% endblock %}
 {% endif %}
 
+{% block body %}
 <div>
     {% if session["username"] == "Ziva" %}
     <h2>Some messages from your children:</h2>
