@@ -12,7 +12,7 @@
     {% if session["username"] == "Ziva" %}
     <h2>Some messages from your children:</h2>
     {% else %}
-    <h2>From {{ session["username"] }}:</h2>
+    <h2>Your messages:</h2>
     {% endif %}
     {% for message in messages %}
     {% if session["username"] == "Ziva" %}

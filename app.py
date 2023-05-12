@@ -130,5 +130,17 @@ def edit_image(id):
     images.edit_image(id, form.get("img_url"), form.get("text_desc"), form.get("img_year"))
     return redirect("/img-search")
     
+@app.route("/forms/image/delete/<id>")
+def delete_image_form(id):
+    if session.get("user_id"):
+        return render_template("delete_image.html", image=images.get_image_id(id))
+    else:
+        return redirect("/login")   
+
+@app.route("/api/image/delete", methods=["POST"])
+def delete_image():
+    images.delete_image(request.form.get("id"))    
+    return redirect("/img-search")
+
 if __name__ == "__main__":
     app.run(debug=True, port=os.getenv("PORT", default=5000))

@@ -24,3 +24,6 @@ def get_image_id(id):
 def edit_image(id, img_url, text_desc, img_year):
     common.sql_write(f"UPDATE images SET img_url=%s, text_desc=%s, img_year=%s WHERE id={id}", [img_url, text_desc, img_year])
     return
+
+def delete_image(id):
+    common.sql_write(f"DELETE FROM images WHERE id={id}", [id])

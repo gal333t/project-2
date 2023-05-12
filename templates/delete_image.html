@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<p>Delete:</p>
+<form class="deleteImg">
+    <input hidden name="id" value="{{ image['id'] }}">
+    <img src="{{ image['img_url'] }}">
+    <br />
+    <input type="submit" value="Yes" formmethod="POST" formaction="/api/image/delete">
+    <input type="submit" value="No" formaction="/img-search">
+</form>
+
+{% endblock %}
