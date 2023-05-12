@@ -2,6 +2,8 @@
 
 {% block body %}
 
+{% if session["username"] == "Galit" %}
+
 <form method="POST" action="/api/image/edit/{{ image['id'] }}">
     <label for="img_url">Edit image:</label>
     <input hidden name="id" value="{{ image['id'] }}">
@@ -10,5 +12,11 @@
     <input id="img_year" name="img_year" value="{{ image['img_year'] }}" required />
     <input type="submit">
 </form>
+
+{% else %}
+<h3>Error</h3>
+<p>Please make sure the correct user is logged in</p>
+
+{% endif %}
 
 {% endblock %}

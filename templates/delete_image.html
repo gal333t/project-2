@@ -2,6 +2,8 @@
 
 {% block body %}
 
+{% if session["username"] == "Galit" %}
+
 <p>Delete:</p>
 <form class="deleteImg">
     <input hidden name="id" value="{{ image['id'] }}">
@@ -11,4 +13,9 @@
     <input type="submit" value="No" formaction="/img-search">
 </form>
 
+{% else %}
+<h3>Error</h3>
+<p>Please make sure the correct user is logged in</p>
+
+{% endif %}
 {% endblock %}
