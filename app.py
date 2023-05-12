@@ -4,7 +4,6 @@ from models import messages, images, user
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "My secret key"
-
 @app.route("/")
 def index():
     if session.get("user_id"):
@@ -116,6 +115,19 @@ def add_image_form():
 def api_image_add():
     form = request.form
     images.add_image(form.get("img_url"), form.get("text_desc"), form.get("img_year"))
+    return redirect("/img-search")
+
+@app.route("/forms/image/edit/<id>")
+def edit_image_form(id):
+    if session.get("user_id"):
+        return render_template("edit_image.html", image=images.get_image_id(id))
+    else:
+        return redirect("/login")    
+
+@app.route("/api/image/edit/<id>", methods=["POST"])
+def edit_image(id):
+    form = request.form
+    images.edit_image(id, form.get("img_url"), form.get("text_desc"), form.get("img_year"))
     return redirect("/img-search")
     
 if __name__ == "__main__":
