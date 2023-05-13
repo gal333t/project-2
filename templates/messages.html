@@ -10,9 +10,9 @@
 {% block body %}
 <div>
     {% if session["username"] == "Ziva" %}
-    <h2>Some messages from your children:</h2>
+    <h3>Some messages from your children:</h3>
     {% else %}
-    <h2>Your messages:</h2>
+    <h3>Your messages:</h3>
     {% endif %}
     {% for message in messages %}
     {% if session["username"] == "Ziva" %}
