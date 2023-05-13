@@ -3,7 +3,11 @@ import os
 from models import messages, images, user
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "My secret key"
+
+my_secret_key=os.getenv("SECRET_KEY")
+
+app.config['SECRET_KEY'] = my_secret_key
+
 @app.route("/")
 def index():
     if session.get("user_id"):
